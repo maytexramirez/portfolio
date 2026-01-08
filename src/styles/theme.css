@@ -1,0 +1,182 @@
+:root{
+  /* Accent (shared) */
+  --accent: #ff4fa3;
+  --accent-2: #ff7bbb;
+  --accent-soft: rgba(255, 79, 163, 0.14);
+
+  /* Defaults (dark) */
+  --ink: #e5e7eb;         /* text */
+  --muted: #a1a1aa;       /* muted text */
+  --bg: #0b0b10;          /* page background */
+  --panel: rgba(255,255,255,0.04);
+  --card: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+
+  --radius: 18px;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Light mode overrides */
+[data-theme="light"]{
+  --ink: #111827;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --panel: rgba(17,24,39,0.03);
+  --card: #ffffff;
+  --border: rgba(17,24,39,0.08);
+  --shadow: 0 14px 34px rgba(17, 24, 39, 0.10);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Make Bulma text inherit our colors */
+.title, .subtitle, .content, .navbar-item, .label {
+  color: var(--ink) !important;
+}
+.muted { color: var(--muted) !important; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-2); }
+
+/* Glow */
+.app-hero {
+  position: relative;
+  overflow: hidden;
+}
+.app-hero::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 380px;
+  background: radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 60%);
+  pointer-events: none;
+}
+
+/* Cards/panels */
+.soft-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Buttons */
+.button.is-accent {
+  background: var(--accent);
+  border-color: transparent;
+  color: white !important;
+  font-weight: 700;
+}
+.button.is-accent:hover {
+  background: var(--accent-2);
+  color: white !important;
+}
+
+.button.is-accent-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 79, 163, 0.45);
+  color: var(--ink) !important;
+  font-weight: 700;
+}
+.button.is-accent-outline:hover {
+  border-color: rgba(255, 79, 163, 0.75);
+  background: rgba(255, 79, 163, 0.08);
+}
+
+/* Light button should look good on dark */
+.button.is-light {
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--ink) !important;
+}
+.button.is-light:hover {
+  background: rgba(255,255,255,0.08) !important;
+}
+
+/* Tags */
+.tag.is-accent {
+  background: rgba(255, 79, 163, 0.14);
+  color: #ffb3d6;
+  border: 1px solid rgba(255, 79, 163, 0.22);
+  font-weight: 700;
+}
+
+/* Navbar */
+.navbar { background: transparent; }
+.navbar-item.is-brand {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* Burger color in dark mode */
+.navbar-burger span {
+  background-color: var(--ink) !important;
+}
+
+/* Theme switch (pill) */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  user-select: none;
+}
+
+.theme-switch-label {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.theme-pill {
+  width: 52px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  position: relative;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.theme-pill:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 79, 163, 0.25);
+}
+
+.theme-knob {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  transition: left 180ms ease, background 180ms ease;
+}
+
+[data-theme="light"] .theme-knob {
+  background: rgba(17,24,39,0.92);
+  box-shadow: 0 10px 18px rgba(17,24,39,0.18);
+}
+
+/* When in dark mode, knob slides right + pill gets pink glow */
+.theme-pill.is-dark {
+  border-color: rgba(255, 79, 163, 0.35);
+  background: rgba(255, 79, 163, 0.10);
+}
+
+.theme-pill.is-dark .theme-knob {
+  left: 25px;
+}
+
