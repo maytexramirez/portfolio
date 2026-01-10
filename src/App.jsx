@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar.jsx";
+import CaseStudyCard from "./components/CaseStudyCard.jsx";
+import { caseStudies } from "./data/caseStudies.js";
+
 
 export default function App() {
+  const [openId, setOpenId] = useState(null); // all closed by default
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "dark";
   });
@@ -36,8 +40,8 @@ export default function App() {
             </p>
 
             <div className="buttons mt-4">
-              <a className="button is-accent" href="#projects">
-                View Projects
+              <a className="button is-accent" href="#work">
+                View Selected Work
               </a>
               <a
                 className="button is-accent-outline"
@@ -95,15 +99,22 @@ export default function App() {
         </div>
       </section>
 
-      {/* PROJECTS (placeholder for now) */}
-      <section id="projects" className="py-6">
-        <h2 className="title is-3 section-title">Projects</h2>
-        <div className="soft-card p-5">
-          <p className="muted">
-            Personal projects coming soon — this section will highlight user-focused
-            applications, dashboards, and automation tools.
-          </p>
-        </div>
+      {/* SELECTED WORK */}
+      <section id="work" className="py-6">
+        <h2 className="title is-3 section-title">Selected Work</h2>
+        <p className="muted mb-4">
+          A few examples of how I ship end-to-end: from planning and scoping through testing,
+          rollout, and support.
+        </p>
+
+        {caseStudies.map((study) => (
+          <CaseStudyCard
+            key={study.id}
+            study={study}
+            isOpen={openId === study.id}
+            onToggle={() => setOpenId(openId === study.id ? null : study.id)}
+          />
+        ))}
       </section>
 
       {/* SKILLS */}

@@ -180,3 +180,60 @@ a:hover { color: var(--accent-2); }
   left: 25px;
 }
 
+/* Expandable case study cards */
+.case-toggle {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: inherit;
+}
+
+.case-chevron {
+  font-size: 1.25rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+.case-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 220ms ease;
+}
+
+/* generous max-height so it can expand smoothly without JS measuring */
+.case-body.is-open {
+  max-height: 900px;
+}
+
+.case-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+/* nicer list spacing */
+.case-grid ul {
+  margin-left: 1.1rem;
+}
+.case-grid li + li {
+  margin-top: 0.5rem;
+}
+
+/* Pink hover glow for cards */
+.soft-card {
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 79, 163, 0.45);
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 79, 163, 0.25),
+    0 0 22px rgba(255, 79, 163, 0.25);
+}

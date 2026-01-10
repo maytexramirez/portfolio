@@ -27,7 +27,7 @@ export default function NavBar({ theme, onToggleTheme }) {
         <div className="navbar-end">
           <a className="navbar-item" href="#about">About</a>
           <a className="navbar-item" href="#highlights">Highlights</a>
-          <a className="navbar-item" href="#projects">Projects</a>
+          <a className="navbar-item" href="#work">Selected Work</a>
           <a className="navbar-item" href="#skills">Skills</a>
           <a className="navbar-item" href="#contact">Contact</a>
           <div className="navbar-item">
