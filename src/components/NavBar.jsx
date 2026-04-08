@@ -7,6 +7,7 @@ export default function NavBar({ theme, onToggleTheme }) {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item is-brand" href="#top">
+          <img src={`${import.meta.env.BASE_URL}mrc.png`} alt="MRC" style={{ height: "32px" }} />
           Mayte Ramirez-Calderon<span style={{ color: "var(--accent)" }}>•</span>
         </a>
 
