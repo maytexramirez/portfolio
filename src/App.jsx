@@ -117,6 +117,38 @@ export default function App() {
         ))}
       </section>
 
+      {/* PROJECTS */}
+      <section id="projects" className="py-6">
+        <h2 className="title is-3 section-title">Projects</h2>
+        <p className="muted mb-4">
+          Work I've built and shipped outside of my day job.
+        </p>
+
+        <div className="soft-card p-5">
+          <div className="is-flex is-justify-content-space-between is-align-items-flex-start mb-2" style={{ flexWrap: "wrap", gap: "0.5rem" }}>
+            <p className="section-title mb-0">Extra Help Homecare</p>
+            <a
+              className="button is-accent is-small"
+              href="https://extrahelpcare.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit site →
+            </a>
+          </div>
+          <p className="muted mb-3">
+            Marketing and booking website for an AHCA-licensed non-medical home health agency
+            based in Sunrise, FL. The agency provides companionship, homemaking, and personal
+            care services for elderly clients, post-surgical recovery, and adults with
+            disabilities — helping them maintain independence at home.
+          </p>
+          <div className="tags">
+            <span className="tag is-accent">React</span>
+            <span className="tag is-accent">Vercel</span>
+          </div>
+        </div>
+      </section>
+
       {/* SKILLS */}
       <section id="skills" className="py-6">
         <h2 className="title is-3 section-title">Skills</h2>
